@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1170" height="870" viewBox="0 0 1170 870" role="img" aria-labelledby="title desc">
+  <title id="title">盲选小鱼三屏 UI 概念图</title>
+  <desc id="desc">软糖海底画风的轮流盲选、逐条揭晓和结果三个手机画面。</desc>
+  <defs>
+    <linearGradient id="sea" x2="0" y2="1">
+      <stop stop-color="#B7F2E7"/>
+      <stop offset="1" stop-color="#78CECF"/>
+    </linearGradient>
+    <linearGradient id="sand" x2="0" y2="1">
+      <stop stop-color="#FFF9E5"/>
+      <stop offset="1" stop-color="#FFE9B8"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#1C5363" flood-opacity=".18"/>
+    </filter>
+    <g id="fishhead" stroke="#244B5B" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14 16 Q11 6 20 2 Q28 5 30 13" fill="currentColor"/>
+      <path d="M18 46 Q17 57 28 57 L35 48" fill="currentColor"/>
+      <path d="M12 15 C20 7 40 7 49 16 Q53 20 56 24 C62 25 67 28 67 34 Q67 41 57 44 C50 53 31 56 18 51 C6 47 2 36 6 25 Q8 19 12 15Z" fill="currentColor"/>
+      <path d="M11 25 Q16 16 28 16" fill="none" stroke="#FFF9E8" stroke-width="3.4"/>
+      <ellipse cx="42" cy="26" rx="9.5" ry="11" fill="#FFFDF5"/>
+      <ellipse cx="44" cy="27" rx="4.6" ry="6.2" fill="#244B5B" stroke="none"/>
+      <circle cx="45.5" cy="24.3" r="2.1" fill="#FFFFFF" stroke="none"/>
+      <path d="M54 35 Q59 40 64 35" fill="none" stroke-width="2.7"/>
+      <path d="M22 30 Q19 34 22 38 M28 30 Q25 34 28 39" fill="none" stroke="#388A91" stroke-width="2"/>
+      <ellipse cx="36" cy="41" rx="5" ry="3" fill="#FFAA9C" stroke="none" opacity=".86"/>
+      <circle cx="16" cy="42" r="2.1" fill="#FFF7D9" stroke="none"/>
+      <circle cx="19" cy="47" r="1.4" fill="#FFF7D9" stroke="none"/>
+    </g>
+    <g id="bubble" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity=".75">
+      <circle cx="0" cy="0" r="10"/><path d="M-5 -3 Q-4 -7 0 -7"/>
+    </g>
+    <style>
+      text { font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif; fill: #244B5B; }
+      .small { font-size: 13px; font-weight: 700; }
+      .medium { font-size: 16px; font-weight: 800; }
+      .screen-title { font-size: 25px; font-weight: 900; }
+      .round { stroke: #244B5B; stroke-width: 4; stroke-linejoin: round; }
+      .caption { font-size: 19px; font-weight: 900; }
+    </style>
+  </defs>
+
+  <rect width="1170" height="870" fill="#F9F5E9"/>
+  <circle cx="1125" cy="72" r="90" fill="#B8EAE0" opacity=".38"/>
+  <circle cx="28" cy="820" r="110" fill="#FFDEAA" opacity=".5"/>
+  <text x="48" y="54" font-size="31" font-weight="900">盲选小鱼 · 海底糖果玩具盒</text>
+  <text x="49" y="82" font-size="15" font-weight="700" fill="#5B7E82">圆润厚描边 · 弹跳触感 · 同屏双人轮流玩</text>
+  <rect x="936" y="37" width="186" height="42" rx="21" fill="#FFD365" stroke="#244B5B" stroke-width="3"/>
+  <text x="1029" y="64" text-anchor="middle" font-size="14" font-weight="900">视觉方向稿 v1</text>
+
+  <!-- Screen 1: selection -->
+  <g transform="translate(36 119)">
+    <rect x="0" y="0" width="342" height="669" rx="37" fill="#244B5B" filter="url(#shadow)"/>
+    <rect x="7" y="7" width="328" height="655" rx="31" fill="url(#sea)"/>
+    <circle cx="288" cy="84" r="28" fill="#FFFFFF" opacity=".16"/>
+    <use xlink:href="#bubble" x="30" y="155"/>
+    <use xlink:href="#bubble" x="313" y="392" transform="rotate(20 313 392) scale(.6)"/>
+    <path d="M7 541 Q75 520 169 541 Q253 555 335 528 L335 631 Q335 662 305 662 L37 662 Q7 662 7 630Z" fill="url(#sand)"/>
+    <rect x="132" y="12" width="78" height="16" rx="8" fill="#244B5B"/>
+    <text x="171" y="70" text-anchor="middle" class="screen-title">盲选小鱼</text>
+    <text x="171" y="95" text-anchor="middle" class="small">轮流挑鱼，身体先保密！</text>
+    <rect x="26" y="112" width="290" height="60" rx="23" fill="#FFF7DF" class="round"/>
+    <circle cx="62" cy="141" r="21" fill="#4E8ED8" stroke="#244B5B" stroke-width="3"/>
+    <text x="62" y="147" text-anchor="middle" font-size="15" font-weight="900" fill="#FFFFFF">蓝</text>
+    <text x="93" y="139" class="small">轮到蓝队</text>
+    <text x="93" y="159" font-size="12" font-weight="700">点一个鱼头</text>
+    <text x="292" y="148" text-anchor="end" font-size="20" font-weight="900">2/4</text>
+
+    <!-- 8 equal-size fish head buttons -->
+    <g>
+      <rect x="27" y="188" width="137" height="82" rx="22" fill="#FFF8E2" class="round"/>
+      <use xlink:href="#fishhead" x="55" y="198" color="#F4B466"/>
+      <circle cx="143" cy="208" r="13" fill="#4E8ED8" stroke="#244B5B" stroke-width="2.5"/>
+      <text x="143" y="213" text-anchor="middle" font-size="12" font-weight="900" fill="#FFFFFF">蓝</text>
+
+      <rect x="178" y="188" width="137" height="82" rx="22" fill="#FFF8E2" class="round"/>
+      <use xlink:href="#fishhead" x="206" y="198" color="#A9D976"/>
+      <circle cx="294" cy="208" r="13" fill="#F47269" stroke="#244B5B" stroke-width="2.5"/>
+      <text x="294" y="213" text-anchor="middle" font-size="12" font-weight="900" fill="#FFFFFF">珊</text>
+
+      <rect x="27" y="281" width="137" height="82" rx="22" fill="#FFF8E2" class="round"/>
+      <use xlink:href="#fishhead" x="55" y="291" color="#9FD4F0"/>
+      <circle cx="143" cy="301" r="13" fill="#4E8ED8" stroke="#244B5B" stroke-width="2.5"/>
+      <text x="143" y="306" text-anchor="middle" font-size="12" font-weight="900" fill="#FFFFFF">蓝</text>
+
+      <rect x="178" y="281" width="137" height="82" rx="22" fill="#FFF8E2" class="round"/>
+      <use xlink:href="#fishhead" x="206" y="291" color="#EF9CB7"/>
+      <circle cx="294" cy="301" r="13" fill="#F47269" stroke="#244B5B" stroke-width="2.5"/>
+      <text x="294" y="306" text-anchor="middle" font-size="12" font-weight="900" fill="#FFFFFF">珊</text>
+
+      <rect x="27" y="374" width="137" height="82" rx="22" fill="#FFF8E2" class="round"/>
+      <use xlink:href="#fishhead" x="55" y="384" color="#BFA4E7"/>
+      <text x="143" y="407" text-anchor="middle" font-size="23" font-weight="900">?</text>
+
+      <rect x="178" y="374" width="137" height="82" rx="22" fill="#FFF8E2" class="round"/>
+      <use xlink:href="#fishhead" x="206" y="384" color="#F5CA72"/>
+      <text x="294" y="407" text-anchor="middle" font-size="23" font-weight="900">?</text>
+
+      <rect x="27" y="467" width="137" height="82" rx="22" fill="#FFF8E2" class="round"/>
+      <use xlink:href="#fishhead" x="55" y="477" color="#F5A39A"/>
+      <text x="143" y="500" text-anchor="middle" font-size="23" font-weight="900">?</text>
+
+      <rect x="178" y="467" width="137" height="82" rx="22" fill="#FFF8E2" class="round"/>
+      <use xlink:href="#fishhead" x="206" y="477" color="#83D7C6"/>
+      <text x="294" y="500" text-anchor="middle" font-size="23" font-weight="900">?</text>
+    </g>
+    <rect x="26" y="575" width="290" height="56" rx="24" fill="#FFF8E6" class="round"/>
+    <circle cx="47" cy="603" r="8" fill="#4E8ED8"/>
+    <text x="65" y="608" class="small">蓝队 2/4</text>
+    <circle cx="172" cy="603" r="8" fill="#F47269"/>
+    <text x="190" y="608" class="small">珊瑚队 2/4</text>
+  </g>
+  <text x="207" y="828" text-anchor="middle" class="caption">① 轮流盲选</text>
+
+  <!-- Screen 2: reveal -->
+  <g transform="translate(414 119)">
+    <rect x="0" y="0" width="342" height="669" rx="37" fill="#244B5B" filter="url(#shadow)"/>
+    <rect x="7" y="7" width="328" height="655" rx="31" fill="url(#sea)"/>
+    <rect x="132" y="12" width="78" height="16" rx="8" fill="#244B5B"/>
+    <use xlink:href="#bubble" x="35" y="182"/>
+    <use xlink:href="#bubble" x="292" y="375"/>
+    <path d="M7 548 Q94 529 166 550 Q248 563 335 541 L335 632 Q335 662 306 662 L36 662 Q7 662 7 632Z" fill="url(#sand)"/>
+    <text x="171" y="68" text-anchor="middle" class="screen-title">小鱼现身！</text>
+    <text x="171" y="94" text-anchor="middle" class="small">第 5 条 / 共 8 条</text>
+    <rect x="25" y="113" width="292" height="67" rx="23" fill="#FFF8E2" class="round"/>
+    <rect x="36" y="124" width="127" height="45" rx="17" fill="#DDEEFF" stroke="#244B5B" stroke-width="2"/>
+    <text x="100" y="144" text-anchor="middle" class="small">蓝队累计</text>
+    <text x="100" y="163" text-anchor="middle" font-size="20" font-weight="900">9 节</text>
+    <rect x="178" y="124" width="127" height="45" rx="17" fill="#FFE7DF" stroke="#244B5B" stroke-width="2"/>
+    <text x="242" y="144" text-anchor="middle" class="small">珊瑚队累计</text>
+    <text x="242" y="163" text-anchor="middle" font-size="20" font-weight="900">6 节</text>
+    <rect x="23" y="204" width="296" height="286" rx="38" fill="#FFF6DA" class="round"/>
+    <path d="M35 425 Q169 458 307 424" fill="none" stroke="#ECCF9A" stroke-width="4" stroke-linecap="round"/>
+    <text x="171" y="242" text-anchor="middle" font-size="17" font-weight="900">蓝队的第 3 条鱼</text>
+    <g stroke="#244B5B" stroke-width="4" stroke-linejoin="round">
+      <path d="M234 326 Q258 317 275 302 Q289 294 287 310 Q286 319 278 326 Q288 336 286 348 Q282 358 271 348 Q255 335 234 330Z" fill="#A9D976"/>
+      <ellipse cx="212" cy="326" rx="25" ry="31" fill="#7DCDDB"/>
+      <ellipse cx="176" cy="326" rx="26" ry="34" fill="#7DCDDB"/>
+      <ellipse cx="140" cy="326" rx="27" ry="36" fill="#7DCDDB"/>
+    </g>
+    <path d="M129 307 Q138 303 146 308 M166 307 Q174 303 182 307 M202 309 Q211 305 218 310" fill="none" stroke="#E9FCF4" stroke-width="3" stroke-linecap="round"/>
+    <use xlink:href="#fishhead" color="#7DCDDB" transform="translate(55 287) scale(1.42)"/>
+    <circle cx="117" cy="386" r="8" fill="#A9D976"/>
+    <circle cx="153" cy="386" r="8" fill="#A9D976"/>
+    <circle cx="189" cy="386" r="8" fill="#A9D976"/>
+    <rect x="80" y="421" width="182" height="49" rx="23" fill="#FFD365" class="round"/>
+    <text x="171" y="453" text-anchor="middle" font-size="24" font-weight="900">+ 3 节！</text>
+    <text x="171" y="528" text-anchor="middle" class="small">鱼身展开，分数落入蓝队</text>
+    <rect x="31" y="570" width="280" height="62" rx="27" fill="#FFD365" class="round"/>
+    <text x="171" y="610" text-anchor="middle" font-size="20" font-weight="900">继续揭晓</text>
+  </g>
+  <text x="585" y="828" text-anchor="middle" class="caption">② 一条条揭晓</text>
+
+  <!-- Screen 3: result -->
+  <g transform="translate(792 119)">
+    <rect x="0" y="0" width="342" height="669" rx="37" fill="#244B5B" filter="url(#shadow)"/>
+    <rect x="7" y="7" width="328" height="655" rx="31" fill="url(#sand)"/>
+    <rect x="132" y="12" width="78" height="16" rx="8" fill="#244B5B"/>
+    <circle cx="53" cy="113" r="32" fill="#9CE0DD" opacity=".55"/>
+    <circle cx="302" cy="211" r="23" fill="#9CE0DD" opacity=".55"/>
+    <path d="M43 185 L48 172 L53 185 L66 190 L53 195 L48 207 L43 195 L31 190Z" fill="#F47269"/>
+    <path d="M285 103 L290 91 L295 103 L307 108 L295 113 L290 125 L285 113 L273 108Z" fill="#A9D976"/>
+    <text x="171" y="83" text-anchor="middle" class="screen-title">这局揭晓！</text>
+    <rect x="25" y="113" width="292" height="126" rx="31" fill="#E4F1FF" class="round"/>
+    <circle cx="70" cy="166" r="26" fill="#4E8ED8" stroke="#244B5B" stroke-width="3"/>
+    <text x="70" y="174" text-anchor="middle" font-size="20" font-weight="900" fill="#FFFFFF">蓝</text>
+    <text x="110" y="158" class="medium">蓝队赢啦！</text>
+    <text x="110" y="188" font-size="13" font-weight="800">差了 3 节，鱼群超给力</text>
+    <text x="171" y="273" text-anchor="middle" class="small">4 条小鱼的身体节数</text>
+    <rect x="26" y="292" width="290" height="100" rx="23" fill="#FFFFFF" class="round"/>
+    <rect x="39" y="306" width="72" height="28" rx="14" fill="#4E8ED8"/>
+    <text x="75" y="326" text-anchor="middle" font-size="13" font-weight="900" fill="#FFFFFF">蓝队</text>
+    <text x="135" y="327" font-size="15" font-weight="800">2 + 4 + 3 + 4</text>
+    <text x="293" y="373" text-anchor="end" font-size="29" font-weight="900">13 节</text>
+    <rect x="26" y="403" width="290" height="100" rx="23" fill="#FFFFFF" class="round"/>
+    <rect x="39" y="417" width="72" height="28" rx="14" fill="#F47269"/>
+    <text x="75" y="437" text-anchor="middle" font-size="13" font-weight="900" fill="#FFFFFF">珊瑚队</text>
+    <text x="135" y="438" font-size="15" font-weight="800">1 + 3 + 2 + 4</text>
+    <text x="293" y="484" text-anchor="end" font-size="29" font-weight="900">10 节</text>
+    <use xlink:href="#fishhead" x="70" y="524" color="#7DCDDB" transform="translate(8 17) rotate(-8 85 550)"/>
+    <use xlink:href="#bubble" x="245" y="542"/>
+    <circle cx="218" cy="555" r="5" fill="#A9D976"/>
+    <rect x="30" y="571" width="282" height="61" rx="27" fill="#FFD365" class="round"/>
+    <text x="171" y="610" text-anchor="middle" font-size="20" font-weight="900">再玩一局</text>
+  </g>
+  <text x="963" y="828" text-anchor="middle" class="caption">③ 清楚结算</text>
+</svg>
