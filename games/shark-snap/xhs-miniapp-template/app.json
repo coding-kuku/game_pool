@@ -1,0 +1,9 @@
+{
+  "pages": ["pages/index/index"],
+  "window": {
+    "navigationBarTitleText": "鲨牙危机",
+    "navigationBarBackgroundColor": "#12384e",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#12384e"
+  }
+}

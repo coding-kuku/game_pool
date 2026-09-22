@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#12384e" />
+    <meta name="description" content="鲨牙危机：轮流按下鲨鱼的18颗牙，看看谁会被突然咬住！" />
+    <title>鲨牙危机 · 酒桌小游戏</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./game.js" defer></script>
+  </head>
+  <body>
+    <main id="app" class="game-app">
+      <div class="ambient ambient-one" aria-hidden="true"></div>
+      <div class="ambient ambient-two" aria-hidden="true"></div>
+
+      <header class="game-header">
+        <div class="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M12 34c0-10 4-18 12-27 6 8 12 18 12 27-6 5-18 5-24 0Z" fill="#a8e7e4"/><path d="M12 34c0-10 4-18 12-27 6 8 12 18 12 27" fill="none" stroke="#a8e7e4" stroke-width="2.5" stroke-linejoin="round"/><path d="M7 36c11-5 23-5 34 0" fill="none" stroke="#ffcf9a" stroke-width="3" stroke-linecap="round"/></svg></div>
+        <div class="brand-copy">
+          <span id="theme-label" class="brand-kicker">深海巡游 · SHARK SNAP</span>
+          <h1>鲨牙危机<span class="title-spark">✦</span></h1>
+        </div>
+        <button id="sound-toggle" class="icon-button sound-button" type="button" aria-label="关闭声音" title="声音开关">
+          <svg class="sound-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Zm12-1a5 5 0 0 1 0 8m2-11a9 9 0 0 1 0 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="sound-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Zm12 0 5 6m0-6-5 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </header>
+
+      <section class="hud" aria-label="游戏状态">
+        <div class="hud-item">
+          <span class="hud-label">现在轮到</span>
+          <div class="hud-value"><span class="hud-dot player-dot"></span><strong id="turn-number">第 1 位</strong></div>
+        </div>
+        <div class="hud-divider"></div>
+        <div class="hud-item hud-item-right">
+          <span class="hud-label">安全牙齿</span>
+          <div class="hud-value"><span class="hud-dot tooth-dot"></span><strong id="safe-count">0 / 18</strong></div>
+        </div>
+      </section>
+
+      <section id="shark-stage" class="shark-stage" aria-label="鲨鱼张开的嘴，点击牙齿进行游戏">
+        <div class="stage-halo" aria-hidden="true"></div>
+        <span class="bubble bubble-a" aria-hidden="true"></span>
+        <span class="bubble bubble-b" aria-hidden="true"></span>
+        <span class="bubble bubble-c" aria-hidden="true"></span>
+        <span class="star star-a" aria-hidden="true">✦</span>
+        <span class="star star-b" aria-hidden="true">✦</span>
+
+        <div class="shark-figure">
+        <div class="shark-art" aria-hidden="true">
+          <svg viewBox="0 0 360 420" role="presentation">
+            <defs>
+              <linearGradient id="sharkBody" x1=".14" y1=".05" x2=".83" y2=".98"><stop style="stop-color:var(--skin-light)"/><stop offset=".32" style="stop-color:var(--skin-mid)"/><stop offset=".7" style="stop-color:var(--skin-deep)"/><stop offset="1" style="stop-color:var(--skin-shadow)"/></linearGradient>
+              <linearGradient id="sharkFin" x1="0" y1="0" x2="1" y2="1"><stop style="stop-color:var(--fin-light)"/><stop offset="1" style="stop-color:var(--fin-dark)"/></linearGradient>
+              <linearGradient id="sharkBelly" x1="0" y1="0" x2="0" y2="1"><stop style="stop-color:var(--belly-light)"/><stop offset="1" style="stop-color:var(--belly-dark)"/></linearGradient>
+              <linearGradient id="eyeWhite" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fffef9"/><stop offset="1" stop-color="#eaf7f3"/></linearGradient>
+              <radialGradient id="irisGlow" cx=".38" cy=".27" r=".78"><stop stop-color="#80cad0"/><stop offset=".38" stop-color="#4b91aa"/><stop offset="1" stop-color="#284966"/></radialGradient>
+              <radialGradient id="innerMouth" cx=".52" cy=".76" r=".78"><stop stop-color="#a96781"/><stop offset=".48" stop-color="#68435f"/><stop offset="1" stop-color="#392b48"/></radialGradient>
+              <filter id="characterShadow" x="-.3" y="-.3" width="1.6" height="1.8"><feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#061f33" flood-opacity=".32"/></filter>
+            </defs>
+            <ellipse cx="180" cy="391" rx="123" ry="15" fill="#061e31" opacity=".22"/>
+            <g filter="url(#characterShadow)">
+              <path class="skin-outline" d="M151 111C158 76 176 40 190 28q4-6 7 2c7 23 18 44 30 64l-18 37Z" fill="url(#sharkFin)" stroke-width="4" stroke-linejoin="round"/>
+              <path class="skin-outline" d="M62 242C37 249 22 274 15 305q-3 14 9 10c27-10 47-4 65 11Z" fill="url(#sharkFin)" stroke-width="4" stroke-linejoin="round"/>
+              <path class="skin-outline" d="M297 240c27 7 43 31 49 63q3 14-9 10c-26-10-46-4-64 11Z" fill="url(#sharkFin)" stroke-width="4" stroke-linejoin="round"/>
+              <path class="skin-outline" d="M180 92c-75-3-129 52-139 128-11 79 21 137 85 159 39 14 102 12 143-14 45-28 63-82 51-148-13-77-66-123-140-125Z" fill="url(#sharkBody)" stroke-width="4"/>
+              <path d="M50 256c5 64 35 107 85 124 34 11 88 10 125-8 39-18 57-57 59-109-24 55-74 88-139 88-69 0-107-29-130-95Z" fill="url(#sharkBelly)" opacity=".94"/>
+              <path d="M61 215c9-52 40-92 84-107M208 108c43 8 72 39 85 83" fill="none" stroke="#e9ffff" stroke-width="9" stroke-linecap="round" opacity=".48"/>
+              <g class="skin-detail detail-deep" fill="none" stroke="var(--detail-color)" stroke-width="5" stroke-linecap="round" opacity=".62"><path d="M146 139c16-8 30-8 44 0"/><path d="M137 152c14-6 26-6 38-1"/><path d="M193 151c11-5 22-4 33 2"/></g>
+              <g class="skin-detail detail-coral" fill="var(--detail-color)" opacity=".58"><path d="m171 131 5 8 9 2-8 5-1 9-6-7-9-2 8-5Z"/><path d="m207 142 4 6 7 1-6 4-1 7-5-5-7-1 6-5Z"/><circle cx="146" cy="151" r="4"/><circle cx="227" cy="157" r="3"/></g>
+              <g class="skin-detail detail-mint" fill="none" stroke="var(--detail-color)" stroke-width="3" opacity=".78"><circle cx="159" cy="143" r="7"/><circle cx="194" cy="134" r="4"/><circle cx="221" cy="149" r="6"/><circle cx="140" cy="160" r="3"/></g>
+              <g class="skin-detail detail-violet" fill="var(--detail-color)" opacity=".82"><path d="m181 127 3 8 8 3-8 3-3 8-3-8-8-3 8-3Z"/><path d="m147 144 2 5 5 2-5 2-2 5-2-5-5-2 5-2Z"/><path d="m216 147 2 5 5 2-5 2-2 5-2-5-5-2 5-2Z"/></g>
+              <g class="skin-detail detail-sunset" fill="none" stroke="var(--detail-color)" stroke-width="6" stroke-linecap="round" opacity=".7"><path d="M145 133c5 8 11 13 18 17"/><path d="M177 127c4 9 10 17 17 22"/><path d="M209 130c3 8 9 14 16 18"/></g>
+              <path d="M67 257c12-27 52-46 114-48 62-1 103 18 113 48 14 43-1 81-38 103-23 13-48 18-75 18-52 0-91-16-109-47-13-22-15-48-5-74Z" fill="url(#innerMouth)" stroke="var(--skin-line)" stroke-width="4"/>
+              <path d="M107 335c13-20 40-28 75-28 37 0 63 10 75 28-14 19-41 30-75 30-36 0-63-11-75-30Z" fill="#a45371" opacity=".85"/>
+              <path d="M133 337c16-12 33-13 49-13 19 0 35 4 49 15" fill="none" stroke="#d77d8c" stroke-width="4" stroke-linecap="round" opacity=".75"/>
+              <path d="M70 251c31-17 69-25 111-25 44 0 82 9 110 26" fill="none" stroke="#e8abb7" stroke-width="6" stroke-linecap="round" opacity=".72"/>
+              <path d="M70 339c29 22 67 29 110 29 44 0 82-8 111-30" fill="none" stroke="#e8abb7" stroke-width="6" stroke-linecap="round" opacity=".72"/>
+              <path class="skin-outline" d="M64 345c27 31 66 43 116 43 49 0 91-15 116-44" fill="none" stroke-width="4" stroke-linecap="round"/>
+              <path class="face-line" d="M80 181c9-11 20-15 31-14 12 0 23 5 29 14m82 0c8-10 18-15 29-15 12 0 23 6 30 15" fill="none" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+              <ellipse cx="112" cy="198" rx="22" ry="26" fill="url(#eyeWhite)"/>
+              <ellipse cx="249" cy="198" rx="22" ry="26" fill="url(#eyeWhite)"/>
+              <ellipse cx="119" cy="200" rx="12.5" ry="15.5" fill="url(#irisGlow)"/>
+              <ellipse cx="242" cy="200" rx="12.5" ry="15.5" fill="url(#irisGlow)"/>
+              <ellipse cx="120" cy="201" rx="8" ry="10.5" fill="#183149"/>
+              <ellipse cx="241" cy="201" rx="8" ry="10.5" fill="#183149"/>
+              <ellipse cx="115" cy="193" rx="4.3" ry="5.2" fill="#fff"/>
+              <ellipse cx="238" cy="193" rx="4.3" ry="5.2" fill="#fff"/>
+              <circle cx="124" cy="208" r="2.2" fill="#efffff"/>
+              <circle cx="247" cy="208" r="2.2" fill="#efffff"/>
+              <path d="M113 211c4 3 8 3 12 0m111 0c4 3 8 3 12 0" fill="none" stroke="#b3e7e8" stroke-width="1.7" stroke-linecap="round" opacity=".8"/>
+              <path class="face-line" d="M85 218c-7 0-12 5-12 10m197-10c7 0 12 5 12 10" fill="none" stroke-width="3" stroke-linecap="round"/>
+              <ellipse cx="83" cy="231" rx="16" ry="7" fill="#f3a3aa" opacity=".37"/><ellipse cx="278" cy="231" rx="16" ry="7" fill="#f3a3aa" opacity=".37"/>
+              <path class="face-line" d="M56 195c-7 10-10 22-7 33m-2-22c-5 9-5 17-2 25m267-36c7 10 10 22 7 33m2-22c5 9 5 17 2 25" fill="none" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+              <path d="M81 151c10-15 23-26 36-32M259 122c12 8 20 19 28 31" fill="none" stroke="#f1ffff" stroke-width="4" stroke-linecap="round" opacity=".36"/>
+              <circle cx="78" cy="169" r="2" fill="#dcf8f7" opacity=".7"/><circle cx="90" cy="156" r="2" fill="#dcf8f7" opacity=".6"/><circle cx="280" cy="166" r="2" fill="#dcf8f7" opacity=".7"/>
+            </g>
+          </svg>
+        </div>
+        <div class="mouth-shell"><div id="tooth-layer" class="tooth-layer"></div></div>
+        </div>
+        <div id="bite-flash" class="bite-flash" aria-hidden="true">咔嚓！</div>
+      </section>
+
+      <section class="bottom-panel">
+        <div class="tip-card"><span class="tip-indicator" aria-hidden="true"></span><p id="status-text">轮流按一颗牙齿<br><strong>小心它突然合上嘴！</strong></p></div>
+        <button id="reset-button" class="reset-button" type="button"><span class="reset-icon">↻</span> 重新开局</button>
+        <p id="theme-footnote" class="footnote">本局主题 · 深海巡游</p>
+      </section>
+
+      <div id="start-overlay" class="overlay start-overlay">
+        <div class="overlay-card start-card">
+          <span id="intro-theme" class="overlay-deco">深海巡游 · SHARK SNAP</span>
+          <div class="intro-shark" aria-hidden="true"><svg viewBox="0 0 88 88"><path d="M44 10c14 9 24 23 27 41-9 15-28 22-48 16C14 48 20 29 44 10Z" fill="#80bfd0" stroke="#397791" stroke-width="3"/><path d="M23 50c17-6 32-4 48 1-4 18-31 24-48-1Z" fill="#382d4a"/><path d="m28 48 7 12 5-14 7 14 5-13 7 12 6-10" fill="#fff9e9"/><circle cx="37" cy="36" r="4" fill="#26425a"/><circle cx="36" cy="34" r="1.5" fill="#fff"/></svg></div>
+          <h2>鲨牙危机</h2>
+          <p>18 颗牙里藏着一颗机关牙。<br />轮流按下，看看鲨鱼会抓住谁。</p>
+          <div class="rules-pill"><span>18 颗牙齿</span><span>轮流按牙</span><span>随机咬合</span></div>
+          <button id="start-button" class="primary-button" type="button">开始游戏 <span>↗</span></button>
+        </div>
+      </div>
+
+      <div id="result-overlay" class="overlay result-overlay" hidden>
+        <div class="overlay-card result-card" role="dialog" aria-modal="true" aria-labelledby="result-title">
+          <span class="overlay-deco">SHARK SNAP!</span>
+          <div class="result-emoji" aria-hidden="true">✳</div>
+          <h2 id="result-title">鲨鱼咬到你啦！</h2>
+          <p id="result-subtitle">第 1 位玩家触发了机关</p>
+          <button id="play-again" class="primary-button" type="button">再来一局 <span>↻</span></button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
