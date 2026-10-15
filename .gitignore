@@ -3,6 +3,7 @@
 Thumbs.db
 .idea/
 .vscode/
+.codex/
 *.log
 
 # Locally generated repository bundle
