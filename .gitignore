@@ -1,0 +1,9 @@
+# Operating-system and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
+
+# Locally generated repository bundle
+_release/
